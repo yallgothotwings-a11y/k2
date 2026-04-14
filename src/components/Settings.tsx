@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Shield, Keyboard, ExternalLink } from 'lucide-react';
+import { Shield, Keyboard, ExternalLink, Download } from 'lucide-react';
 
 export default function Settings() {
   const [panicKey, setPanicKey] = useState('~');
@@ -93,6 +93,25 @@ export default function Settings() {
             >
               launch cloak
             </button>
+          </div>
+        </div>
+
+        <div className="bg-k2-gray border-k2 p-6 rounded-xl space-y-4">
+          <div className="flex items-center justify-between">
+            <div className="space-y-1">
+              <h3 className="text-white font-bold flex items-center gap-2">
+                <Download size={18} className="text-white/40" />
+                export project
+              </h3>
+              <p className="text-[10px] text-white/20 tracking-widest uppercase">download the full source code as a zip file</p>
+            </div>
+            <a
+              href="/api/export-zip"
+              download="k2-project.zip"
+              className="px-6 py-2 rounded-lg border border-white/10 text-white hover:bg-white/5 transition-all text-xs tracking-widest flex items-center gap-2"
+            >
+              <Download size={14} /> export zip
+            </a>
           </div>
         </div>
 

@@ -35,4 +35,4 @@ export interface AppItem {
   description: string;
 }
 
-export type View = 'games' | 'unblocker' | 'media' | 'ai' | 'settings' | 'chat' | 'apps' | 'feed' | 'learn';
+export type View = 'games' | 'unblocker' | 'media' | 'ai' | 'settings' | 'chat' | 'apps' | 'feed' | 'customize';

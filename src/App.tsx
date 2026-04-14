@@ -10,7 +10,7 @@ import {
   Wrench,
   MessageSquare,
   Mountain,
-  BookOpen
+  Palette
 } from 'lucide-react';
 import Games from './components/Games';
 import Unblocker from './components/Unblocker';
@@ -18,13 +18,22 @@ import Media from './components/Media';
 import AIChat from './components/AIChat';
 import Chat from './components/Chat';
 import Settings from './components/Settings';
-import Learn from './components/Learn';
+import Customize from './components/Customize';
 import CustomCursor from './components/CustomCursor';
 import { View } from './types';
 
 export default function App() {
   const [currentView, setCurrentView] = useState<View | 'home'>('home');
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [themeColor, setThemeColor] = useState('bg-white');
+  const [background, setBackground] = useState('noise');
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('k2-theme-color');
+    const savedBg = localStorage.getItem('k2-background');
+    if (savedTheme) setThemeColor(savedTheme);
+    if (savedBg) setBackground(savedBg);
+  }, []);
 
   const handleNavClick = (id: View | 'home') => {
     if (id === currentView || isTransitioning) return;
@@ -58,12 +67,12 @@ export default function App() {
     { id: 'chat', icon: MessageSquare, label: 'chat' },
     { id: 'unblocker', icon: Wrench, label: 'unblocker' },
     { id: 'ai', icon: Sparkles, label: 'ai' },
-    { id: 'learn', icon: BookOpen, label: 'learn' },
+    { id: 'customize', icon: Palette, label: 'customize' },
     { id: 'settings', icon: SettingsIcon, label: 'settings' },
   ];
 
   return (
-    <div className="flex min-h-screen bg-k2-black overflow-hidden selection:bg-white selection:text-black">
+    <div className={`flex min-h-screen overflow-hidden selection:bg-white selection:text-black ${background === 'solid' ? 'bg-black' : 'bg-k2-black'}`}>
       <CustomCursor />
       {/* main content */}
       <main className="flex-1 relative overflow-y-auto p-8 lg:p-16">
@@ -105,7 +114,7 @@ export default function App() {
                 >
                   <button 
                     onClick={() => handleNavClick('games')}
-                    className="px-8 py-3 bg-white text-black font-bold rounded-full hover:bg-gray-200 transition-all"
+                    className={`px-8 py-3 ${themeColor} ${themeColor === 'bg-white' ? 'text-black' : 'text-white'} font-bold rounded-full hover:opacity-80 transition-all`}
                   >
                     explore archives
                   </button>
@@ -123,13 +132,15 @@ export default function App() {
             {currentView === 'media' && <Media />}
             {currentView === 'chat' && <Chat />}
             {currentView === 'ai' && <AIChat />}
-            {currentView === 'learn' && <Learn />}
+            {currentView === 'customize' && <Customize themeColor={themeColor} setThemeColor={setThemeColor} background={background} setBackground={setBackground} />}
             {currentView === 'settings' && <Settings />}
           </motion.div>
         </AnimatePresence>
 
         {/* background noise/texture */}
-        <div className="fixed inset-0 pointer-events-none opacity-[0.02] mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+        {background === 'noise' && (
+          <div className="fixed inset-0 pointer-events-none opacity-[0.02] mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+        )}
       </main>
 
       {/* sidebar on the right */}
@@ -156,7 +167,7 @@ export default function App() {
               {currentView === item.id && (
                 <motion.div 
                   layoutId="active-nav"
-                  className="absolute -right-0.5 top-2 bottom-2 w-0.5 bg-white rounded-full"
+                  className={`absolute -right-0.5 top-2 bottom-2 w-0.5 ${themeColor} rounded-full`}
                 />
               )}
             </button>

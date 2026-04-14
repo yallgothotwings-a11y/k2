@@ -12,22 +12,19 @@ export default function Media() {
       id: 'music', 
       title: 'monochrome.tf', 
       url: 'https://monochrome.tf', 
-      icon: Music,
-      description: 'minimalist music stream. strictly monochromatic.'
+      icon: Music
     },
     { 
       id: 'movies', 
       title: 'xprime.su', 
       url: 'https://xprime.su/', 
-      icon: Film,
-      description: 'unrestricted movie archive. watch everything.'
+      icon: Film
     },
     {
       id: 'anime',
-      title: 'anicrush.to',
-      url: 'https://anicrush.to/',
-      icon: Play,
-      description: 'premium anime streaming. subbed and dubbed.'
+      title: '9anime.to',
+      url: 'https://9anime.to/',
+      icon: Play
     }
   ];
 
@@ -96,7 +93,6 @@ export default function Media() {
               </div>
               <div className="space-y-2">
                 <h3 className="text-2xl font-bold text-white tracking-tight">{hub.title}</h3>
-                <p className="text-white/40 text-sm leading-relaxed">{hub.description}</p>
               </div>
               <div className="pt-4">
                 <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-white/20 group-hover:text-white transition-colors">

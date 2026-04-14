@@ -19,6 +19,7 @@ import AIChat from './components/AIChat';
 import Chat from './components/Chat';
 import Settings from './components/Settings';
 import Learn from './components/Learn';
+import CustomCursor from './components/CustomCursor';
 import { View } from './types';
 
 export default function App() {
@@ -63,6 +64,7 @@ export default function App() {
 
   return (
     <div className="flex min-h-screen bg-k2-black overflow-hidden selection:bg-white selection:text-black">
+      <CustomCursor />
       {/* main content */}
       <main className="flex-1 relative overflow-y-auto p-8 lg:p-16">
         <AnimatePresence mode="wait">

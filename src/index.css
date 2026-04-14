@@ -8,8 +8,17 @@
 }
 
 @layer base {
-  * {
+  *, *::before, *::after {
     text-transform: lowercase;
+    cursor: none !important;
+  }
+  
+  input, textarea, [contenteditable="true"] {
+    cursor: text !important;
+  }
+  
+  iframe {
+    cursor: auto !important;
   }
   
   body {

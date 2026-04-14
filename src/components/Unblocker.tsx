@@ -58,6 +58,7 @@ export default function Unblocker() {
             src={activeUrl} 
             className="w-full h-full border-none"
             title="proxy-frame"
+            sandbox="allow-scripts allow-same-origin allow-forms allow-downloads"
           />
         </div>
       </div>
@@ -81,6 +82,7 @@ export default function Unblocker() {
             ref={iframeRef}
             className="w-full h-full border-none"
             title="html-runner"
+            sandbox="allow-scripts allow-same-origin allow-forms allow-downloads"
           />
         </div>
       </div>

@@ -121,11 +121,6 @@ export default function Settings() {
             <p>
               uhhh i was bored
             </p>
-            <div className="flex gap-6">
-              <a href="#" className="text-white hover:underline flex items-center gap-1 text-xs tracking-widest">
-                github <ExternalLink size={10} />
-              </a>
-            </div>
           </div>
         </div>
       </div>

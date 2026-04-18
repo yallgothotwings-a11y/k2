@@ -22,8 +22,8 @@ export default function Media() {
     },
     {
       id: 'anime',
-      title: '9anime.to',
-      url: 'https://9anime.to/',
+      title: 'enma.lol',
+      url: 'https://enma.lol/',
       icon: Play
     }
   ];

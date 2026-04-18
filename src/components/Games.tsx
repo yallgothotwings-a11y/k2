@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { Search, Play, X } from 'lucide-react';
+import { Search, Play, X, Image as ImageIcon } from 'lucide-react';
 import { GAMES } from '../constants';
 
 export default function Games() {

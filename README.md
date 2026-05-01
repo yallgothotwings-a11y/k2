@@ -1,10 +1,10 @@
-# Hi there 👋
+# wsp folk 👋
 
-I was bored so I made this.
+im just doin shi
 
-Just tinkering around and doing shizzle
+
 
 
 i am NOT doing my worrk in class
 
-— *A EXTREMELY bored developer*   
+— *A EXTREMELY bored dork*   
